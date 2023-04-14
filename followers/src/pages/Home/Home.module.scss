@@ -1,0 +1,55 @@
+@import "../../sass/utils/container";
+@import "../../sass/utils/mixins";
+
+.wrapper {
+  background: linear-gradient(25deg, #867ef3, #222ac9, #ce6a0d);
+  height: 100vh;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 50px;
+  padding-top: 75%;
+  @include tablet {
+    padding-top: 50%;
+  }
+  @include desktop {
+    padding-top: 23%;
+  }
+}
+
+.title {
+  font-size: 42px;
+  font-family: "Montserrat-SemiBold";
+  color: whitesmoke;
+  text-shadow: 8px 20px 2px rgba(212, 129, 13, 0.79);
+  @include tablet {
+    font-size: 76px;
+  }
+  @include desktop {
+    font-size: 108px;
+  }
+}
+
+.link {
+  font-size: 32px;
+  font-family: "Montserrat-SemiBold";
+  color: whitesmoke;
+  text-shadow: 8px 12px 2px rgba(212, 129, 13, 0.79);
+  cursor: pointer;
+  &:hover,
+  &:focus {
+    color: rgba(212, 129, 13, 0.79);
+    text-shadow: 8px 12px 2px whitesmoke;
+    @include transition-animation(all);
+  }
+  @include tablet {
+    font-size: 66px;
+  }
+  @include desktop {
+    font-size: 78px;
+  }
+}

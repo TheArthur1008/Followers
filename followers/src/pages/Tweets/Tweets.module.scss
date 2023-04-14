@@ -1,0 +1,165 @@
+@import "../../sass/utils/container";
+@import "../../sass/utils/mixins";
+
+.wrapper {
+  background: linear-gradient(75deg, #ce6a0d, #867ef3, #222ac9);
+}
+
+.link {
+  font-size: 11px;
+  color: whitesmoke;
+  text-shadow: 8px 12px 2px rgba(212, 129, 13, 0.79);
+  cursor: pointer;
+  &:hover,
+  &:focus {
+    color: rgba(212, 129, 13, 0.79);
+    text-shadow: 8px 12px 2px whitesmoke;
+    @include transition-animation(all);
+  }
+  @include tablet {
+    font-size: 22px;
+  }
+  @include desktop {
+    font-size: 44px;
+  }
+}
+
+.list {
+  padding: 40px 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+}
+
+.item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  width: 380px;
+  padding: 28px 36px 36px;
+  background: linear-gradient(
+    114.99deg,
+    #471ca9 -0.99%,
+    #5736a3 54.28%,
+    #4b2a99 78.99%
+  );
+  box-shadow: -2.5777px 6.87386px 20.6216px rgba(0, 0, 0, 0.23);
+  border-radius: 20px;
+}
+
+.logo {
+  position: absolute;
+  top: 20px;
+  left: -90px;
+  @include tablet {
+    top: 20px;
+    left: -130px;
+  }
+}
+
+.lineLeft {
+  position: absolute;
+  top: 173px;
+  left: 0;
+  width: 154px;
+  height: 8px;
+  background: #ebd8ff;
+  box-shadow: 0px 3.43693px 3.43693px rgba(0, 0, 0, 0.06),
+    inset 0px -1.71846px 3.43693px #ae7be3, inset 0px 3.43693px 2.5777px #fbf8ff;
+  @include tablet {
+    top: 214px;
+    left: 0;
+  }
+}
+
+.lineRight {
+  position: absolute;
+  top: 173px;
+  right: 0;
+  width: 154px;
+  height: 8px;
+  background: #ebd8ff;
+  box-shadow: 0px 3.43693px 3.43693px rgba(0, 0, 0, 0.06),
+    inset 0px -1.71846px 3.43693px #ae7be3, inset 0px 3.43693px 2.5777px #fbf8ff;
+  @include tablet {
+    top: 214px;
+    right: 0;
+  }
+}
+
+.circle {
+  position: absolute;
+  top: 136px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 80px;
+  border: 8px solid #ebd8ff;
+  border-radius: 50%;
+  box-shadow: 0px 4.39163px 4.39163px rgba(0, 0, 0, 0.06),
+    inset 0px -2.19582px 4.39163px #ae7be3,
+    inset 0px 4.39163px 3.29372px #fbf8ff;
+  overflow: hidden;
+  @include tablet {
+    top: 178px;
+    left: 50%;
+  }
+}
+
+.avatar {
+  height: 100%;
+  object-fit: cover;
+}
+
+.tweets {
+  margin-top: 88px;
+  font-family: "Montserrat-Medium";
+  font-size: 20px;
+  line-height: 24px;
+  text-transform: uppercase;
+  color: #ebd8ff;
+}
+
+.followers {
+  margin-top: 16px;
+  font-family: "Montserrat-Medium";
+  font-size: 20px;
+  line-height: 24px;
+  text-transform: uppercase;
+  color: #ebd8ff;
+}
+
+.btn {
+  margin-top: 26px;
+  border: 0;
+  display: inline-block;
+  padding: 14px 0;
+  width: 196px;
+  text-align: center;
+  background: #ebd8ff;
+  border-radius: 10px;
+  font-family: "Montserrat-SemiBold";
+  font-size: 18px;
+  line-height: 22px;
+  text-transform: uppercase;
+  color: #373737;
+}
+
+.btnIsActive {
+  margin-top: 26px;
+  border: 0;
+  display: inline-block;
+  padding: 14px 0;
+  width: 196px;
+  text-align: center;
+  background: #5cd3a8;
+  border-radius: 10px;
+  font-family: "Montserrat-SemiBold";
+  font-size: 18px;
+  line-height: 22px;
+  text-transform: uppercase;
+  color: #373737;
+}
