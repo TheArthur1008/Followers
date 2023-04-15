@@ -1,61 +1,70 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+
+import { statusFilters } from "../../redux/constans";
+import { getFollowers, getStatusFilter } from "../../redux/selectors";
+import { fetchFollowers } from "../../redux/thunk";
+
+import { Filter } from "../../components/Filter/Filter";
+import { TweetsList } from "../../components/TweetsList/TweetsList";
+import { ButtonLoadMore } from "../../components/Button/ButtonLoadMore";
 
 import s from "./Tweets.module.scss";
-
 import logo from "../../images/logo.svg";
 import picture from "../../images/picture.png";
 
-import users from "../../db/users.json";
+const getVisibleFollowers = (followers, statusFilter) => {
+  switch (statusFilter) {
+    case statusFilters.follow:
+      return followers.filter((follower) => !follower.completed);
+    case statusFilters.followings:
+      return followers.filter((follower) => follower.completed);
+    default:
+      return followers;
+  }
+};
 
 export const Tweets = () => {
+  // const [currentPage, setCurrentPage] = useState(1);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(fetchFollowers());
+  }, [dispatch]);
+
+  // const handleClickLoadMore = () => {
+  //   setCurrentPage((prev) => prev + 1);
+  // };
+
+  const followers = useSelector(getFollowers);
+  const statusFilter = useSelector(getStatusFilter);
+  const visibleTasks = getVisibleFollowers(followers, statusFilter);
+  console.log(followers.length);
+
   return (
     <div className={s.wrapper}>
       <div className={s.container}>
         <NavLink to="/" className={s.link}>
           Back
         </NavLink>
+        <Filter />
         <ul className={s.list}>
-          {users.map(({ id, avatar, user, tweets, followers }) => (
-            <li className={s.item} key={id}>
-              <img
-                className={s.logo}
-                src={logo}
-                alt="logo"
-                width="76px"
-                height="22px"
-              />
+          {visibleTasks.map((follower) => (
+            <li className={s.item} key={follower.id}>
+              <img className={s.logo} src={logo} alt="logo" />
 
-              <img src={picture} alt="..." width="308" />
+              <img className={s.picture} src={picture} alt="asks" />
 
               <div className={s.lineLeft}></div>
 
               <div className={s.lineRight}></div>
-
-              <div className={s.circle}>
-                <img
-                  className={s.avatar}
-                  src={avatar}
-                  alt={user}
-                  width="80px"
-                  title={user}
-                />
-              </div>
-
-              <p className={s.tweets}>
-                <span>{tweets}</span> tweets
-              </p>
-
-              <p className={s.followers}>
-                <span>{followers}</span> Followers
-              </p>
-
-              <button className={s.btn} type="button">
-                Follow
-              </button>
+              <TweetsList follower={follower} />
             </li>
           ))}
         </ul>
+        {/* {followers.length % 12 < 1 && followers.length > 0 && (
+          <ButtonLoadMore onClick={handleClickLoadMore} />
+        )} */}
       </div>
     </div>
   );

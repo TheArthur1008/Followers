@@ -1,0 +1,39 @@
+@import "../../sass/utils/mixins";
+
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  @include tablet {
+    gap: 8px;
+  }
+}
+
+.btn {
+  display: inline-flex;
+  padding: 4px 6px;
+  border-radius: 4px;
+  border: none;
+  font-family: "Montserrat-SemiBold";
+  font-size: 10px;
+  text-transform: uppercase;
+  cursor: pointer;
+  background-color: #e2e5e8;
+  color: inherit;
+  @include tablet {
+    padding: 14px 18px;
+    border-radius: 8px;
+    font-size: 14px;
+  }
+}
+
+.btn:hover {
+  background-color: #ce6a0d;
+  color: #fff;
+}
+
+.btn:active {
+  background-color: #ce6a0d;
+  color: #fff;
+}
