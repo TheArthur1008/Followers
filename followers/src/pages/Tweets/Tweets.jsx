@@ -8,7 +8,7 @@ import { fetchFollowers } from "../../redux/thunk";
 
 import { Filter } from "../../components/Filter/Filter";
 import { TweetsList } from "../../components/TweetsList/TweetsList";
-import { ButtonLoadMore } from "../../components/Button/ButtonLoadMore";
+import { ButtonLoadMore } from "../../components/Button/ButtonLoadMore/ButtonLoadMore";
 
 import s from "./Tweets.module.scss";
 import logo from "../../images/logo.svg";
@@ -39,7 +39,7 @@ export const Tweets = () => {
   const followers = useSelector(getFollowers);
   const statusFilter = useSelector(getStatusFilter);
   const visibleTasks = getVisibleFollowers(followers, statusFilter);
-  console.log(followers.length);
+  console.log(statusFilter);
 
   return (
     <div className={s.wrapper}>
