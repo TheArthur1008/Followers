@@ -2,7 +2,7 @@
   "name": "followers",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://TheArthur1008.github.io/Followers",
+  "homepage": "https://theArthur1008.github.io/Followers",
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.3",
     "@testing-library/jest-dom": "^5.16.5",
