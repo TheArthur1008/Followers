@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 
@@ -8,7 +8,6 @@ import { fetchFollowers } from "../../redux/thunk";
 
 import { Filter } from "../../components/Filter/Filter";
 import { TweetsList } from "../../components/TweetsList/TweetsList";
-import { ButtonLoadMore } from "../../components/Button/ButtonLoadMore/ButtonLoadMore";
 
 import s from "./Tweets.module.scss";
 import logo from "../../images/logo.svg";
@@ -26,20 +25,14 @@ const getVisibleFollowers = (followers, statusFilter) => {
 };
 
 export const Tweets = () => {
-  // const [currentPage, setCurrentPage] = useState(1);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchFollowers());
   }, [dispatch]);
 
-  // const handleClickLoadMore = () => {
-  //   setCurrentPage((prev) => prev + 1);
-  // };
-
   const followers = useSelector(getFollowers);
   const statusFilter = useSelector(getStatusFilter);
   const visibleTasks = getVisibleFollowers(followers, statusFilter);
-  console.log(statusFilter);
 
   return (
     <div className={s.wrapper}>
@@ -62,9 +55,6 @@ export const Tweets = () => {
             </li>
           ))}
         </ul>
-        {/* {followers.length % 12 < 1 && followers.length > 0 && (
-          <ButtonLoadMore onClick={handleClickLoadMore} />
-        )} */}
       </div>
     </div>
   );

@@ -24,12 +24,14 @@ export const Filter = () => {
         All
       </ButtonFilter>
       <ButtonFilter
+        type="button"
         selected={filter === statusFilters.follow}
         onClick={() => handleFilterChange(statusFilters.follow)}
       >
         Follow
       </ButtonFilter>
       <ButtonFilter
+        type="button"
         selected={filter === statusFilters.followings}
         onClick={() => handleFilterChange(statusFilters.followings)}
       >

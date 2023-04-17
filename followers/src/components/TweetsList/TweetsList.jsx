@@ -1,6 +1,5 @@
-import React, { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { getStatusFilter } from "../../redux/selectors";
+import React from "react";
+import { useDispatch } from "react-redux";
 
 import { toggleCompleted } from "../../redux/thunk";
 
@@ -8,18 +7,15 @@ import s from "./TweetsList.module.scss";
 
 export const TweetsList = ({ follower }) => {
   const dispatch = useDispatch();
-  const [follow, setFollow] = useState(false);
-  const statusFilter = useSelector(getStatusFilter);
   const isFollow = () => {
     dispatch(toggleCompleted(follower));
-    setFollow(!follow);
   };
 
   const count = (count) => {
-    if (!follow) {
+    if (!follower.completed) {
       return count.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
     }
-    return Number(count) + 1;
+    return (Number(count) + 1).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
   };
 
   return (
@@ -42,11 +38,11 @@ export const TweetsList = ({ follower }) => {
         <span>{count(follower.followers)}</span> Followers
       </p>
       <button
-        className={follow ? s.btnIsActive : s.btn}
+        className={follower.completed ? s.btnIsActive : s.btn}
         type="button"
         onClick={isFollow}
       >
-        {follow ? "Following" : "Follow"}
+        {follower.completed ? "Following" : "Follow"}
       </button>
     </>
   );
