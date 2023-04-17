@@ -8,12 +8,14 @@
 .link {
   font-size: 11px;
   color: whitesmoke;
-  text-shadow: 8px 12px 2px rgba(212, 129, 13, 0.79);
+  text-shadow: 7px 8px 2px rgba(212, 129, 13, 0.79);
+  border-bottom: 4px solid whitesmoke;
   cursor: pointer;
   &:hover,
   &:focus {
     color: rgba(212, 129, 13, 0.79);
-    text-shadow: 8px 12px 2px whitesmoke;
+    text-shadow: 7px 8px 2px whitesmoke;
+    border-bottom: 4px solid rgba(212, 129, 13, 0.79);
     @include transition-animation(all);
   }
   @include tablet {
