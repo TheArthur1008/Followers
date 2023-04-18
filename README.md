@@ -15,6 +15,6 @@ The application allows you to see people who share tweets and makes it possible 
 
 - [React.js](https://reactjs.org/)
 
--[Redux-Toolkit.js](https://redux-toolkit.js.org/)
+- [Redux-Toolkit.js](https://redux-toolkit.js.org/)
 
--[SASS](https://sass-lang.com/)
+- [SASS](https://sass-lang.com/)
